@@ -2,29 +2,66 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
-    <title>BrickBreaker</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-        
-        canvas {
-            background: #eee;
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
+
+    <title>Brick Breaker</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700&display=swap" rel="stylesheet">
+
 </head>
 
-<body>
+<body onresize="checkWindowWidth()">
 
-    <canvas id="myCanvas" width="480" height="320"></canvas>
+    <div class="overlay" id="js-flip-overlay">
+        <div class="content">
+            <img src="http://anescadames.com/brickbreaker/flip.png" />
+            <span>Please flip your phone to play the game</span>
+        </div>
+    </div>
 
-    <script src="./script.js">
-    </script>
+    <div class="content">
+        <h1></h1>
+    </div>
 
+    <div class="game-container">
+        <div style="display: none;">
+            <img id="js-bg-image" src="http://anescadames.com/brickbreaker/background.jpg">
+        </div>
+        <canvas id="js-canvas-breakout" width="480" height="320"></canvas>
+    </div>
+
+    <div class="popup overlay" id="js-popup-success">
+
+        <div class="popup-inner">
+
+            <div>
+                <img src="http://anescadames.com/brickbreaker/success.png" />
+                <h3>Congratulations!</h3>
+                <span>You win!</span>
+
+                <button type="button" onclick="reset()">Play again?</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="popup overlay" id="js-popup-fail">
+
+        <div class="popup-inner">
+
+            <div>
+                <h3>Game over</h3>
+                <span>Sorry, you lose.</span>
+
+                <button type="button" onclick="reset()">Play again?</button>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="./script.js"></script>
 </body>
 
 </html>
